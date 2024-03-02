@@ -131,8 +131,9 @@ The specifications provided can be found at [`specifications.pdf`](specification
 
 - [X] Set-up the flask framework.
 - [ ] Implement the back-end API.
-  - [ ] Add the `/people` endpoint.
-  - [ ] Add the `/people/<person>` endpoint.
+  - [X] Add `GET /people`.
+  - [X] Add `POST /people`.
+  - [ ] Add `DELETE /people`.
 - [ ] Implement the front-end webpage.
   - [ ] Add the `Load Data` button.
   - [ ] Add the `Clear Data` button.
@@ -140,7 +141,8 @@ The specifications provided can be found at [`specifications.pdf`](specification
 
 ### Nonessential Features
 
-- [ ] Allow query results to be sorted.
+- [ ] Allow for `POST /people` to accept multiple types.
+- [ ] Allow query results to be sorted by the front-end.
 - [ ] Allow partial matches when querying.
 - [ ] Include entry relevancy in query results.
 
