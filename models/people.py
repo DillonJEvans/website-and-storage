@@ -1,4 +1,4 @@
-from . import people_container
+from . import container
 
 
 def add_people_to_database(people):
@@ -23,7 +23,7 @@ def add_people_to_database(people):
       if key in person:
         continue
       person[key] = value
-    people_container.upsert_item(person)
+    container.upsert_item(person)
 
 
 def clear_database():

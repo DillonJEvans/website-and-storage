@@ -1,17 +1,21 @@
-from azure.cosmos import CosmosClient
-from azure.identity import DefaultAzureCredential
+from azure.cosmos import CosmosClient, PartitionKey
 from flask import Flask
+
+import config
+
 
 app = Flask(__name__)
 app.json.sort_keys = False
 
-endpoint = 'https://436p4.documents.azure.com:443/'
+client = CosmosClient(config.COSMOS_HOST, {'masterKey': config.COSMOS_KEY})
+database = client.create_database_if_not_exists(config.COSMOS_DATABASE_ID)
+container = database.create_container_if_not_exists(
+  config.COSMOS_CONTAINER_ID,
+  PartitionKey('/lastName'),
+  offer_throughput=1000,
+  unique_key_policy={'uniqueKeys': [{'paths': ['/firstName', '/lastName']}]}
+)
 
-credential = DefaultAzureCredential()
-client = CosmosClient(url=endpoint, credential=credential)
-
-database = client.get_database_client('436p4')
-people_container = database.get_container_client('people')
 
 import models
 import views

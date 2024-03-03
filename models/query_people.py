@@ -1,4 +1,4 @@
-from . import people_container
+from . import container
 
 
 def query_people(attributes):
@@ -6,7 +6,7 @@ def query_people(attributes):
   limit = get_limit(attributes, 20)
   query += f' OFFSET 0 LIMIT {limit}'
   print(f'Query: {query}')
-  people = people_container.query_items(
+  people = container.query_items(
     query=query,
     parameters=parameters,
     enable_cross_partition_query=True
