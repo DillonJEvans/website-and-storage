@@ -2,7 +2,7 @@ import requests
 from flask import request
 
 from . import app
-from models import add_people_to_database, query_people
+from models import add_people_to_database, clear_database, query_people
 
 
 @app.get('/people')
@@ -20,5 +20,5 @@ def post_people():
 
 @app.delete('/people')
 def delete_people():
-  return '', 404
-  # return '', clear_database()
+  clear_database()
+  return '', 204

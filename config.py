@@ -2,6 +2,19 @@ import os
 from typing import Dict
 
 
+# Fill in the COSMOS_DEFAULT dictionary with the information about your cosmos database.
+# HOST = The URI of the database.
+# KEY  = The key to the database.
+# DATABASE_ID  = The name of the database. This will be created if it does not exist.
+# CONTAINER_ID = The name of the container. This will be created if it does not exist.
+#
+# Both the HOST and KEY can be found on the Azure management console.
+#   1. Go to the Azure Cosmos DB service.
+#   2. Select (or create) your Azure Cosmos DB account.
+#   3. On the left-hand side, under "Settings", select "Keys".
+# HOST is the "URI" on that page.
+# KEY is the "PRIMARY KEY" (or "SECONDARY KEY") on that page.
+
 COSMOS_DEFAULT: Dict[str, str] = {
   'HOST': '',
   'KEY': '',
