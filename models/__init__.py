@@ -1,4 +1,4 @@
-from app import database, container, config
+from app import database, container
 
 
 from .add_people import add_people_to_database
