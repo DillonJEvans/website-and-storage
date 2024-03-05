@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Union
+from typing import Any
 
 from . import container
 
@@ -24,7 +24,7 @@ def add_people_to_database(people: str) -> None:
     container.upsert_item(person)
 
 
-def create_basic_person(attributes: List[str]) -> Dict[str, Any]:
+def create_basic_person(attributes: list[str]) -> dict[str, Any]:
   """
   Creates a person with just the basic attributes (id, firstName, and lastName).
   :param attributes: The attributes that make up a person.
@@ -40,7 +40,7 @@ def create_basic_person(attributes: List[str]) -> Dict[str, Any]:
   return person
 
 
-def add_attribute(person: Dict[str, Any], attribute: str) -> bool:
+def add_attribute(person: dict[str, Any], attribute: str) -> bool:
   """
   Adds an attribute to the person.
   :param person: The person to add the attribute to.
@@ -61,7 +61,7 @@ def add_attribute(person: Dict[str, Any], attribute: str) -> bool:
   return True
 
 
-def to_implicit_type(string: str) -> Union[str, int, float]:
+def to_implicit_type(string: str) -> str | int | float:
   """
   Converts the string to an int or float if it can.
   :param string: The string that may represent a string, int, or float.

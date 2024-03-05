@@ -1,9 +1,9 @@
-from typing import Any, Dict, Iterable, List, Tuple
+from typing import Any, Iterable
 
 from . import container
 
 
-def query_people(attributes: Dict[str, str]) -> Iterable[Dict[str, Any]]:
+def query_people(attributes: dict[str, str]) -> Iterable[dict[str, Any]]:
   """
   Queries the database for people with the matching name(s).
   :param attributes: The attributes to query for.
@@ -24,7 +24,7 @@ def query_people(attributes: Dict[str, str]) -> Iterable[Dict[str, Any]]:
   return [sanitize_person(person) for person in people]
 
 
-def create_query(attributes: Dict[str, str]) -> Tuple[str, List[Dict[str, str]]]:
+def create_query(attributes: dict[str, str]) -> tuple[str, list[dict[str, str]]]:
   """
   Creates a SQL-like query for people with the matching name(s).
   :param attributes: The first and/or last name to query for.
@@ -54,7 +54,7 @@ def create_query(attributes: Dict[str, str]) -> Tuple[str, List[Dict[str, str]]]
   return query, parameters
 
 
-def get_limit(attributes: Dict[str, str], max_limit: int) -> int:
+def get_limit(attributes: dict[str, str], max_limit: int) -> int:
   """
   Gets the limit of results for the query.
   :param attributes: The attributes potentially containing a 'limit' key.
@@ -69,7 +69,7 @@ def get_limit(attributes: Dict[str, str], max_limit: int) -> int:
   return min(limit, max_limit)
 
 
-def sanitize_person(person: Dict[str, Any]) -> Dict[str, Any]:
+def sanitize_person(person: dict[str, Any]) -> dict[str, Any]:
   """
   Removes attributes from the person that the client should not see.
   :param person: The person to sanitize.

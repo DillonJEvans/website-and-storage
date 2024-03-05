@@ -2,7 +2,6 @@ import os
 
 from azure.cosmos import CosmosClient, PartitionKey
 from flask import Flask
-
 from dotenv import load_dotenv
 
 
