@@ -1,6 +1,2 @@
-from app import database, container
-
-
-from .add_people import add_people_to_database
-from .clear_people import clear_database
-from .query_people import query_people
+from .database import add_people, clear_people, query_people
+from .object_storage import save_object

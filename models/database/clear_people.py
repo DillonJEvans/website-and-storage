@@ -2,16 +2,16 @@ import os
 
 from azure.cosmos import PartitionKey
 
-import models
-from . import database
+from . import database, container
 
 
-def clear_database() -> None:
+def clear_people() -> None:
   """
   Clears the database.
   """
-  database.delete_container(models.container)
-  models.container = database.create_container_if_not_exists(
+  global container
+  database.delete_container(container)
+  container = database.create_container_if_not_exists(
     os.getenv('COSMOS_CONTAINER_ID'),
     PartitionKey('/lastName'),
     offer_throughput=1000,

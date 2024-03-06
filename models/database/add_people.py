@@ -3,7 +3,7 @@ from typing import Any
 from . import container
 
 
-def add_people_to_database(people: str) -> None:
+def add_people(people: str) -> None:
   """
   Adds people to the database.
   :param people: A string representing the people to add.
