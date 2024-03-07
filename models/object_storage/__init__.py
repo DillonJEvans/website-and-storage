@@ -26,18 +26,13 @@ def get_or_create_container() -> ContainerClient:
   """
   container_id = os.getenv('BLOB_CONTAINER_ID')
   print(f'BLOB: Getting the container ({container_id})...', end='')
-  # The ContainerProperties constructor always sets `name` to None,
-  # even if name is provided. This is a workaround.
-  container_properties = ContainerProperties()
-  container_properties.name = container_id
-  container_properties.public_access = 'blob'
-  container = client.get_container_client(container_properties)
+  container = client.get_container_client(container_id)
   if container.exists():
     print(' success.')
   else:
     print(f'\nBLOB: Container ({container_id}) does not exist.')
     print(f'BLOB: Creating the container ({container_id})...', end='')
-    container.create_container()
+    container.create_container(public_access='blob')
     print(' success.')
   return container
 
@@ -46,4 +41,5 @@ client = create_client()
 container = get_or_create_container()
 
 
+from .clear_objects import clear_objects
 from .save_object import save_object

@@ -3,13 +3,16 @@ from typing import Any
 from . import container
 
 
-def add_people(people: str) -> None:
+def add_people(people: str) -> int:
   """
   Adds people to the database.
   :param people: A string representing the people to add.
+  :returns: The number of people sent to the database.
   """
+  print(f'COSMOS: Adding people to the container ({container.id})...')
   # Split the people into individual people (1 person per line).
   # Upsert each person to the database.
+  added = 0
   for line in people.splitlines():
     attributes = line.split()
     # If the person doesn't have both a first and last name, ignore them.
@@ -20,8 +23,12 @@ def add_people(people: str) -> None:
     for attribute in attributes[2:]:
       add_attribute(person, attribute)
     # Upsert the person (after printing a logging message).
-    print(f'\tUpserting {person["id"]}')
+    print(f'        Upserting {person["id"]}...', end='')
     container.upsert_item(person)
+    print(' success.')
+    added += 1
+  print(f'COSMOS: Added {added:,} people to the container ({container.id}).')
+  return added
 
 
 def create_basic_person(attributes: list[str]) -> dict[str, Any]:

@@ -9,19 +9,26 @@ def query_people(attributes: dict[str, str]) -> Iterable[dict[str, Any]]:
   :param attributes: The attributes to query for.
   :returns: A list of people that matches the query.
   """
+  limit = get_limit(attributes, 20)
+  print(f'COSMOS: Querying the container ({container.id}) for '
+        f'firstName={attributes.get("firstName", "[ANY]")} AND '
+        f'lastName={attributes.get("lastName", "[ANY]")} '
+        f'LIMIT {limit:,}...',
+        end=''
+  )
   # Create the query.
   query, parameters = create_query(attributes)
-  limit = get_limit(attributes, 20)
   query += f' OFFSET 0 LIMIT {limit}'
   # Query the database (after printing a logging message).
-  print(f'\tQuerying {query}')
   people = container.query_items(
     query=query,
     parameters=parameters,
     enable_cross_partition_query=True
   )
   # Return the results (after sanitizing them and converting them to an iterable).
-  return [sanitize_person(person) for person in people]
+  results = [sanitize_person(person) for person in people]
+  print(f' {len(results):,} matches.')
+  return results
 
 
 def create_query(attributes: dict[str, str]) -> tuple[str, list[dict[str, str]]]:

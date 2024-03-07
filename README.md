@@ -68,7 +68,9 @@ The specifications provided can be found at [`specifications.pdf`](specification
 
 2. [Create][Azure-cosmos-db] an Azure Cosmos DB account.
 
-3. [Install][Python-download] Python 3.9 or later.
+3. [Create][Azure-storage] an Azure Storage account.
+
+4. [Install][Python-download] Python 3.9 or later.
 
    macOS/Linux: `python3 --version`
 
@@ -192,6 +194,7 @@ The application should now be running at the Azure Web App's domain
 [Azure-python-quickstart]: https://learn.microsoft.com/en-us/azure/app-service/quickstart-python
 [Azure-app-services]:      https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites
 [Azure-cosmos-db]:         https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.DocumentDb%2FdatabaseAccounts
+[Azure-storage]:           https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts
 [Azure-tools]:             https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 <!-- Other External Links -->

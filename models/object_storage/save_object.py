@@ -11,11 +11,12 @@ def save_object(name: str, data: bytes | str, content_type='text/plain') -> str:
   :param content_type: The content type of the object.
   :returns: The URL of the object.
   """
-  # azure.core.exceptions.ResourceNotFoundError
+  print(f'BLOB: Saving the object ({name})...', end='')
   blob = container.upload_blob(
     name=name,
     data=data,
     overwrite=True,
     content_settings=ContentSettings(content_type=content_type)
   )
+  print(' success.')
   return blob.url
