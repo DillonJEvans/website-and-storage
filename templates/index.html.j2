@@ -1,0 +1,33 @@
+{% extends "base.html.j2" %}
+
+
+
+{% block head %}
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<button type="button" onclick="loadData()">Load Data</button>
+<p id="loadMessage" style="display: none;">Please wait...</p>
+<a id="blobLink" target="_blank" href="" style="display: none;"></a>
+
+<button type="button" onclick="clearData()">Clear Data</button>
+<p id="clearMessage" style="display: none;"></p>
+
+<form onsubmit="return queryData(this)">
+  <label for="firstName">First Name:</label>
+  <input type="text" id="firstName" name="firstName">
+  <label for="lastName">Last Name:</label>
+  <input type="text" id="lastName" name="lastName">
+  <input type="submit" value="Query">
+</form>
+
+<p id="queryMessage" style="display: none;">Querying the data...</p>
+<div id="queryResults"></div>
+
+{% endblock %}

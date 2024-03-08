@@ -159,14 +159,15 @@ The application should now be running at the Azure Web App's domain
   - [X] Add `GET /people`.
   - [X] Add `POST /people`.
   - [X] Add `DELETE /people`.
-- [ ] Implement the front-end webpage.
-  - [ ] Add the `Load Data` button.
-  - [ ] Add the `Clear Data` button.
-  - [ ] Add the `Query` button.
+- [X] Implement the front-end webpage.
+  - [X] Add the `Load Data` button.
+  - [X] Add the `Clear Data` button.
+  - [X] Add the `Query` button.
 
 ### Nonessential Features
 
-- [ ] Allow `POST /people` to accept custom data, including URLs, files, and plain-text.
+- [ ] Only allow one button to be pressed at a time.
+- [ ] Make the front-end look better.
 - [ ] Allow query results to be sorted by the front-end.
 - [ ] Allow partial matches when querying.
 - [ ] Include entry relevancy in query results.
